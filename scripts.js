@@ -31,14 +31,24 @@ class Frontpage {
 
     for (let i = 0; i < categories.length; i += 1) {
       const app = this.createElephant('vidBox', '', 'div');
-      const tit = this.createElephant('tit', categories[i].title, 'div');
+      const tit = this.createElephant('vidBox__tit', categories[i].title, 'h2');
       this.appendElephant(app);
       app.appendChild(tit);
 
       for (let j = 0; j < videos.length; j += 1) {
         for (let h = 0; h < categories[i].videos.length; h += 1) {
           if (videos[j].id === categories[i].videos[h]) {
-            app.appendChild(this.createElephant('video', videos[j].title, 'div'));
+            const boxbox = this.createElephant('vidBox__box', '', 'div');
+            app.appendChild(boxbox);
+
+            const clickBox = this.createElephant('clickBox', '', 'a');
+            clickBox.setAttribute('href', `videos.html?id=${videos[h].id}`);
+            boxbox.appendChild(clickBox);
+
+            const img = this.createElephant('videoImg', '', 'img');
+            img.setAttribute('src', videos[h].poster);
+            clickBox.appendChild(img);
+            clickBox.appendChild(this.createElephant('videoTit', videos[j].title, 'h3'));
           }
         }
       }
