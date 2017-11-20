@@ -3,5 +3,7 @@ html {
 
 main {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center; }
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto; }
