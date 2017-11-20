@@ -8,3 +8,9 @@ $white: #eee;
 html {
   background-color: $darkgrey;
 }
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}

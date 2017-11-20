@@ -1,2 +1,7 @@
 html {
   background-color: #666; }
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
