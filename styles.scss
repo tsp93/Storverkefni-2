@@ -16,8 +16,9 @@ main {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  max-width: 1000px;
+  max-width: 1400px;
   margin: auto;
 }
 
 @import "scss/frontpage";
+@import "scss/videopage";

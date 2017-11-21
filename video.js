@@ -3,7 +3,6 @@ class Vidpage {
   constructor() {
     this.main = document.querySelector('main');
   }
-
 }
 
 async function init() {

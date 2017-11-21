@@ -54,3 +54,17 @@
 .videoimg {
   width: 100%;
 }
+
+@media (max-width: 1000px) {
+  .vidbox {
+    width: 45%;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .vidbox {
+    width: 100%;
+    margin: 1rem;
+  }
+}
