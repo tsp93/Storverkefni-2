@@ -1,5 +1,8 @@
 html {
-  background-color: #666; }
+  background-color: #666;
+  box-sizing: border-box;
+  color: #eee;
+  font-family: helvetica, arial, sans-serif; }
 
 main {
   display: flex;
@@ -7,3 +10,29 @@ main {
   justify-content: center;
   align-items: center;
   margin: auto; }
+
+a {
+  color: #eee;
+  text-decoration: none; }
+
+.catbox {
+  display: flex;
+  flex-flow: column;
+  max-width: 1000px; }
+  .catbox__tit {
+    margin: 1rem; }
+  .catbox__vids {
+    display: flex;
+    flex-flow: row wrap; }
+
+.vidbox {
+  color: #eee;
+  width: 30%;
+  margin: 1rem; }
+
+.videoinf {
+  width: 50%;
+  text-overflow: ellipsis; }
+
+.videoimg {
+  width: 100%; }

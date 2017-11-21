@@ -25,30 +25,77 @@ class Frontpage {
     }
   }
 
+  makeTime(thenTime) {
+    const deit = new Date();
+    const nowTime = deit.getTime();
+    const timeCreate = nowTime - thenTime;
+
+    const timeSince = timeCreate / 1000;
+
+    const years = Math.floor(timeSince / (60 * 60 * 24 * 365));
+    if (years > 0) {
+      const ret = this.createTimeElephant(years, 'árum');
+      return ret;
+    }
+
+    const weeks = Math.floor(timeSince / (60 * 60 * 24 * 7));
+    if (weeks > 0) {
+      const ret = this.createTimeElephant(weeks, 'vikum');
+      return ret;
+    }
+
+    const days = Math.floor(timeSince / (60 * 60 * 24));
+    if (days > 0) {
+      const ret = this.createTimeElephant(days, 'dögum');
+      return ret;
+    }
+
+    const hours = Math.floor(timeSince / (60 * 60));
+    const ret = this.createTimeElephant(hours, 'klukkustundum');
+    return ret;
+  }
+
+  createTimeElephant(timeSince, timeUnit) {
+    if (timeSince === 0) {
+      return 'Fyrir minna en klukkutíma síðan';
+    }
+    const timeSent = `Fyrir ${timeSince} ${timeUnit} síðan`;
+    return timeSent;
+  }
+
   makePage(jSonData) {
     const videos = jSonData.videos;
     const categories = jSonData.categories;
 
     for (let i = 0; i < categories.length; i += 1) {
-      const app = this.createElephant('vidBox', '', 'div');
-      const tit = this.createElephant('vidBox__tit', categories[i].title, 'h2');
+      const app = this.createElephant('catbox', '', 'div');
+      const tit = this.createElephant('catbox__tit', categories[i].title, 'h2');
+      const vids = this.createElephant('catbox__vids', '', 'div');
       this.appendElephant(app);
       app.appendChild(tit);
+      app.appendChild(vids);
 
       for (let j = 0; j < videos.length; j += 1) {
         for (let h = 0; h < categories[i].videos.length; h += 1) {
           if (videos[j].id === categories[i].videos[h]) {
-            const boxbox = this.createElephant('vidBox__box', '', 'div');
-            app.appendChild(boxbox);
+            const vidbox = this.createElephant('vidbox', '', 'div');
+            vids.appendChild(vidbox);
 
-            const clickBox = this.createElephant('clickBox', '', 'a');
-            clickBox.setAttribute('href', `videos.html?id=${videos[h].id}`);
-            boxbox.appendChild(clickBox);
+            const clickbox = this.createElephant('clickbox', '', 'a');
+            clickbox.setAttribute('href', `video.html?id=${videos[h].id}`);
+            vidbox.appendChild(clickbox);
 
-            const img = this.createElephant('videoImg', '', 'img');
+            const img = this.createElephant('videoimg', '', 'img');
             img.setAttribute('src', videos[h].poster);
-            clickBox.appendChild(img);
-            clickBox.appendChild(this.createElephant('videoTit', videos[j].title, 'h3'));
+            clickbox.appendChild(img);
+
+            const vidInf = this.createElephant('videoinf', '', 'div');
+            clickbox.appendChild(vidInf);
+
+            const vidInfTit = this.createElephant('videoinf__tit', videos[h].title, 'h3');
+            const vidInfText = this.createElephant('videoinf__text', this.makeTime(videos[h].created), 'p');
+            vidInf.appendChild(vidInfTit);
+            vidInf.appendChild(vidInfText);
           }
         }
       }

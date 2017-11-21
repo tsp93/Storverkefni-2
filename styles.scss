@@ -2,11 +2,14 @@
 $darkgrey: #666;
 $lightgrey: #f0f0f0;
 $betgrey: #ccc;
-$black: #333;
+$black: #000;
 $white: #eee;
 
 html {
   background-color: $darkgrey;
+  box-sizing: border-box;
+  color: $white;
+  font-family: helvetica, arial, sans-serif;
 }
 
 main {
@@ -16,3 +19,5 @@ main {
   align-items: center;
   margin: auto;
 }
+
+@import "scss/frontpage";
