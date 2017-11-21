@@ -34,33 +34,52 @@ class Frontpage {
 
     const years = Math.floor(timeSince / (60 * 60 * 24 * 365));
     if (years > 0) {
-      const ret = this.createTimeElephant(years, 'árum');
+      let ret = this.createTime(years, 'árum');
+      if (years === 1) {
+        ret = this.createTime(years, 'ári');
+      }
+      return ret;
+    }
+
+    const months = Math.floor(timeSince / (60 * 60 * 24 * 30));
+    if (months > 0) {
+      let ret = this.createTime(months, 'mánuðum');
+      if (months === 1) {
+        ret = this.createTime(months, 'mánuði');
+      }
       return ret;
     }
 
     const weeks = Math.floor(timeSince / (60 * 60 * 24 * 7));
     if (weeks > 0) {
-      const ret = this.createTimeElephant(weeks, 'vikum');
+      let ret = this.createTime(weeks, 'vikum');
+      if (weeks === 1) {
+        ret = this.createTime(weeks, 'viku');
+      }
       return ret;
     }
 
     const days = Math.floor(timeSince / (60 * 60 * 24));
     if (days > 0) {
-      const ret = this.createTimeElephant(days, 'dögum');
+      let ret = this.createTime(days, 'dögum');
+      if (days === 1) {
+        ret = this.createTime(days, 'degi');
+      }
       return ret;
     }
 
     const hours = Math.floor(timeSince / (60 * 60));
-    const ret = this.createTimeElephant(hours, 'klukkustundum');
+    let ret = this.createTime(hours, 'klukkustundum');
+    if (hours === 1) {
+      ret = this.createTime(hours, 'klukkustund');
+    } else if (hours === 0) {
+      ret = this.createTime('', 'minna en klukkutíma');
+    }
     return ret;
   }
 
-  createTimeElephant(timeSince, timeUnit) {
-    if (timeSince === 0) {
-      return 'Fyrir minna en klukkutíma síðan';
-    }
-    const timeSent = `Fyrir ${timeSince} ${timeUnit} síðan`;
-    return timeSent;
+  createTime(timeSince, timeUnit) {
+    return `Fyrir ${timeSince} ${timeUnit} síðan`;
   }
 
   makePage(jSonData) {
@@ -102,7 +121,6 @@ class Frontpage {
           }
         }
       }
-
     }
   }
 }
