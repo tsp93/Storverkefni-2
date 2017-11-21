@@ -3,14 +3,19 @@ class Vidpage {
   constructor() {
     this.main = document.querySelector('main');
   }
+
+  makePage(jSonData) {
+    const url = window.location.href.split('=')[1];
+    const videos = jSonData.videos;
+  }
 }
 
 async function init() {
   const response = await fetch('videos.json');
-  const frontpage = new Vidpage();
+  const vidpage = new Vidpage();
   await response.json()
-    .then((jSonData) => { frontpage.destroyElephant(); frontpage.makePage(jSonData); })
-    .catch((error) => { frontpage.appendElephant(frontpage.createElephant('error', error, 'div')); return []; });
+    .then((jSonData) => { vidpage.makePage(jSonData); })
+    .catch(error => error);
 }
 
 init();
