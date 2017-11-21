@@ -1,38 +1,53 @@
 html {
-  background-color: #666;
+  background-color: #333;
   box-sizing: border-box;
   color: #eee;
   font-family: helvetica, arial, sans-serif; }
 
 main {
+  align-items: center;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: center;
-  margin: auto; }
+  margin: auto;
+  max-width: 1000px; }
 
 a {
   color: #eee;
   text-decoration: none; }
 
+.maintitle {
+  align-self: flex-start;
+  margin: 0 0 2rem 1rem; }
+
 .catbox {
   display: flex;
-  flex-flow: column;
-  max-width: 1000px; }
+  flex-flow: column; }
   .catbox__tit {
-    margin: 1rem; }
+    font-size: 2rem;
+    margin: 0 1rem 1rem; }
   .catbox__vids {
     display: flex;
     flex-flow: row wrap; }
+  .catbox__sep {
+    align-self: center;
+    border-bottom: 2px solid #888;
+    margin: 2rem 0;
+    width: 80%; }
 
 .vidbox {
   color: #eee;
-  width: 30%;
-  margin: 1rem; }
+  margin: 1rem;
+  width: 30%; }
 
 .videoinf {
-  width: 50%;
   text-overflow: ellipsis; }
+  .videoinf__tit {
+    font-size: 1.5rem;
+    margin: 0.5rem 0 0; }
+  .videoinf__text {
+    font-weight: bold;
+    margin: 0.5rem 0 0; }
 
 .videoimg {
   width: 100%; }

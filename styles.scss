@@ -1,7 +1,6 @@
 
-$darkgrey: #666;
-$lightgrey: #f0f0f0;
-$betgrey: #ccc;
+$darkgrey: #333;
+$lightgrey: #888;
 $black: #000;
 $white: #eee;
 
@@ -13,11 +12,12 @@ html {
 }
 
 main {
+  align-items: center;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: center;
   margin: auto;
+  max-width: 1000px;
 }
 
 @import "scss/frontpage";

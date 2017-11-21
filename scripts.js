@@ -66,14 +66,17 @@ class Frontpage {
   makePage(jSonData) {
     const videos = jSonData.videos;
     const categories = jSonData.categories;
+    this.appendElephant(this.createElephant('maintitle', 'Myndbandaleigan', 'h1'));
 
     for (let i = 0; i < categories.length; i += 1) {
       const app = this.createElephant('catbox', '', 'div');
       const tit = this.createElephant('catbox__tit', categories[i].title, 'h2');
       const vids = this.createElephant('catbox__vids', '', 'div');
+      const sep = this.createElephant('catbox__sep', '', 'div');
       this.appendElephant(app);
       app.appendChild(tit);
       app.appendChild(vids);
+      app.appendChild(sep);
 
       for (let j = 0; j < videos.length; j += 1) {
         for (let h = 0; h < categories[i].videos.length; h += 1) {
@@ -99,6 +102,7 @@ class Frontpage {
           }
         }
       }
+
     }
   }
 }
