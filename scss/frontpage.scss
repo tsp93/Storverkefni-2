@@ -1,7 +1,3 @@
-a {
-  color: $white;
-  text-decoration: none;
-}
 
 .maintitle {
   align-self: flex-start;
@@ -13,8 +9,8 @@ a {
   flex-flow: column;
 
   &__tit {
-    font-size: 2rem;
     margin: 0 1rem 1rem;
+    font-size: 2rem;
   }
 
   &__vids {
@@ -24,29 +20,34 @@ a {
 
   &__sep {
     align-self: center;
-    border-bottom: 2px solid $lightgrey;
-    margin: 2rem 0;
     width: 80%;
+    margin: 2rem 0;
+    border-bottom: 2px solid $lightgrey;
   }
 }
 
-.vidbox {
+.clickbox {
   color: $white;
-  margin: 1rem;
+  text-decoration: none;
+}
+
+.vidbox {
   width: 30%;
+  margin: 1rem;
+  color: $white;
 }
 
 .videoinf {
   text-overflow: ellipsis;
 
   &__tit {
-    font-size: 1.5rem;
     margin: 0.5rem 0 0;
+    font-size: 1.5rem;
   }
 
   &__text {
-    font-weight: bold;
     margin: 0.5rem 0 0;
+    font-weight: bold;
   }
 }
 

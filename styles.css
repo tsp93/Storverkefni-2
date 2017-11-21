@@ -1,20 +1,16 @@
-html {
-  background-color: #333;
+* {
   box-sizing: border-box;
+  font-family: helvetica, arial, sans-serif;
   color: #eee;
-  font-family: helvetica, arial, sans-serif; }
+  background-color: #333; }
 
-main {
+html body {
   align-items: center;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   justify-content: center;
-  margin: auto;
-  max-width: 1000px; }
-
-a {
-  color: #eee;
-  text-decoration: none; }
+  max-width: 1000px;
+  margin: auto; }
 
 .maintitle {
   align-self: flex-start;
@@ -24,30 +20,34 @@ a {
   display: flex;
   flex-flow: column; }
   .catbox__tit {
-    font-size: 2rem;
-    margin: 0 1rem 1rem; }
+    margin: 0 1rem 1rem;
+    font-size: 2rem; }
   .catbox__vids {
     display: flex;
     flex-flow: row wrap; }
   .catbox__sep {
     align-self: center;
-    border-bottom: 2px solid #888;
+    width: 80%;
     margin: 2rem 0;
-    width: 80%; }
+    border-bottom: 2px solid #888; }
+
+.clickbox {
+  color: #eee;
+  text-decoration: none; }
 
 .vidbox {
-  color: #eee;
+  width: 30%;
   margin: 1rem;
-  width: 30%; }
+  color: #eee; }
 
 .videoinf {
   text-overflow: ellipsis; }
   .videoinf__tit {
-    font-size: 1.5rem;
-    margin: 0.5rem 0 0; }
+    margin: 0.5rem 0 0;
+    font-size: 1.5rem; }
   .videoinf__text {
-    font-weight: bold;
-    margin: 0.5rem 0 0; }
+    margin: 0.5rem 0 0;
+    font-weight: bold; }
 
 .videoimg {
   width: 100%; }

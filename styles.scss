@@ -4,20 +4,20 @@ $lightgrey: #888;
 $black: #000;
 $white: #eee;
 
-html {
-  background-color: $darkgrey;
+* {
   box-sizing: border-box;
-  color: $white;
   font-family: helvetica, arial, sans-serif;
+  color: $white;
+  background-color: $darkgrey;
 }
 
 main {
   align-items: center;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   justify-content: center;
-  margin: auto;
   max-width: 1000px;
+  margin: auto;
 }
 
 @import "scss/frontpage";
