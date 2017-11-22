@@ -130,7 +130,7 @@ async function init() {
   const frontpage = new Frontpage();
   await response.json()
     .then((jSonData) => { frontpage.destroyElephant(); frontpage.makePage(jSonData); })
-    .catch((error) => { frontpage.appendElephant(frontpage.createElephant('error', error, 'div')); return []; });
+    .catch((error) => { frontpage.appendElephant(frontpage.createElephant('error loading files', error, 'div')); return []; });
 }
 
 init();
