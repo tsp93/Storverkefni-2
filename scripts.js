@@ -34,52 +34,41 @@ class Frontpage {
 
     const years = Math.floor(timeSince / (60 * 60 * 24 * 365));
     if (years > 0) {
-      let ret = this.createTime(years, 'árum');
-      if (years === 1) {
-        ret = this.createTime(years, 'ári');
-      }
+      const ret = this.createTime(years, 'ári', 'árum');
       return ret;
     }
 
     const months = Math.floor(timeSince / (60 * 60 * 24 * 30));
     if (months > 0) {
-      let ret = this.createTime(months, 'mánuðum');
-      if (months === 1) {
-        ret = this.createTime(months, 'mánuði');
-      }
+      const ret = this.createTime(months, 'mánuði', 'mánuðum');
       return ret;
     }
 
     const weeks = Math.floor(timeSince / (60 * 60 * 24 * 7));
     if (weeks > 0) {
-      let ret = this.createTime(weeks, 'vikum');
-      if (weeks === 1) {
-        ret = this.createTime(weeks, 'viku');
-      }
+      const ret = this.createTime(weeks, 'viku', 'vikum');
       return ret;
     }
 
     const days = Math.floor(timeSince / (60 * 60 * 24));
     if (days > 0) {
-      let ret = this.createTime(days, 'dögum');
-      if (days === 1) {
-        ret = this.createTime(days, 'degi');
-      }
+      const ret = this.createTime(days, 'degi', 'dögum');
       return ret;
     }
 
     const hours = Math.floor(timeSince / (60 * 60));
-    let ret = this.createTime(hours, 'klukkustundum');
-    if (hours === 1) {
-      ret = this.createTime(hours, 'klukkustund');
-    } else if (hours === 0) {
-      ret = this.createTime('', 'minna en klukkutíma');
+    let ret = this.createTime(hours, 'klukkustund', 'klukkustundum');
+    if (hours === 0) {
+      ret = this.createTime('', '', 'minna en klukkutíma');
     }
     return ret;
   }
 
-  createTime(timeSince, timeUnit) {
-    return `Fyrir ${timeSince} ${timeUnit} síðan`;
+  createTime(timeSince, timeUnitSingle, timeUnitMulti) {
+    if (timeSince === 1) {
+      return `Fyrir ${timeSince} ${timeUnitSingle} síðan`;
+    }
+    return `Fyrir ${timeSince} ${timeUnitMulti} síðan`;
   }
 
   makePage(jSonData) {
